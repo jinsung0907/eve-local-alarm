@@ -59,7 +59,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
-      <HintPath>..\packages\AForge.Imaging.2.2.5\lib\AForge.Imaging.dll</HintPath>
+      <HintPath>AForge.Imaging.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="AForge.Math, Version=2.2.5.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
@@ -79,7 +79,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="http_server.cs" />
+    
     <Compile Include="image_cord.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,7 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="98224221_32.ico" />
-    <None Include="bin\Debug\Cylen.wav" />
+    <None Include="air_raid_siren.wav" />
     <Content Include="Resources\01.bmp" />
     <Content Include="Resources\02.bmp" />
     <Content Include="Resources\03.bmp" />

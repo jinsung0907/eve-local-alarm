@@ -20,7 +20,7 @@ namespace screencap
         public Process proc;
         public int isareaset = 0, text_xstart = 0, text_ystart = 0, text_xend = 0, text_yend = 0, status = 0;
 
-        SoundPlayer wav = new SoundPlayer(Properties.Resources.Cylen);
+        SoundPlayer wav = new SoundPlayer(Properties.Resources.Siren);
 
         Bitmap img_bad = new Bitmap(Properties.Resources._06);
         Bitmap img_neut = new Bitmap(Properties.Resources._10);
@@ -29,7 +29,7 @@ namespace screencap
         
         private void label1_Click(object sender, EventArgs e)
         {
-            Process.Start("https://gate.eveonline.com/Profile/Jinsung%202");
+            //Process.Start("https://gate.eveonline.com/Profile/Jinsung%202");
         }
 
         private void timer1_Tick(object sender, EventArgs e)

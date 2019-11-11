@@ -19,8 +19,8 @@ namespace screencap
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Main_Form());
-            http_server httpd = new http_server();
-            httpd.SimpleHTTPServer(".", 8010);
+          //  http_server httpd = new http_server();
+          //  httpd.SimpleHTTPServer(".", 8010);
         }
     }
 
