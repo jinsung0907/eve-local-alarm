@@ -26,6 +26,7 @@ namespace screencap
             ListBox_process.DataSource = listboxDataList;
         }
         
+        // 선택한 툰의 게임화면 보여주기
         private void ListBox_process_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (pictureBox_process.Image != null)
@@ -34,10 +35,12 @@ namespace screencap
             IntPtr windowHandle = p.MainWindowHandle;
             var Capture = new CaptureLib();
             Bitmap bmp = Capture.CaptureWindow(windowHandle);
-            pictureBox_process.Image = bmp;
-            pictureBox_process.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox_process.Image = bmp; // 게임 화면
+            // pictureBox_process.SizeMode = PictureBoxSizeMode.StretchImage; 
+           // bmp.Dispose();  // 해줘야지 -- 하면 안됨.
         }
 
+        // 툰 선택
         private void ListBox_process_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (ListBox_process.IndexFromPoint(e.Location) == -1)

@@ -32,6 +32,11 @@ namespace screencap
             //Process.Start("https://gate.eveonline.com/Profile/Jinsung%202");
         }
 
+        private void Main_Form_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             DoRequest();
@@ -42,6 +47,8 @@ namespace screencap
             InitializeComponent();
         }
 
+
+        // 영역 설정 버튼 
         private void button1_Click(object sender, EventArgs e)
         {
             var Capture = new CaptureLib();
@@ -75,7 +82,7 @@ namespace screencap
                     pictureBox1.Image.Dispose();
                 }
                 pictureBox1.Image = bmp;
-                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                //pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
                 Bitmap img_original = bmp;
 
@@ -105,6 +112,7 @@ namespace screencap
                 }
                 img_original.UnlockBits(bitmapData);
 
+                // 
                 template = new Bitmap(img_terrible.Width, img_terrible.Height, PixelFormat.Format24bppRgb);
                 using (Graphics graphics = Graphics.FromImage((System.Drawing.Image)template))
                     graphics.DrawImage((System.Drawing.Image)img_terrible, new Rectangle(0, 0, template.Width, template.Height));
@@ -142,6 +150,7 @@ namespace screencap
             GC.WaitForPendingFinalizers();
         }
 
+        // 툰 고르는 화면 보여줌
         private void textBox1_MouseClick(object sender, MouseEventArgs e)
         {
             new process_select(this).ShowDialog();

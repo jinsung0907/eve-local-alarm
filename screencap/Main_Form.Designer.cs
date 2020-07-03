@@ -49,29 +49,35 @@
             // 
             // textBox_Name
             // 
-            this.textBox_Name.Location = new System.Drawing.Point(15, 12);
+            this.textBox_Name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox_Name.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_Name.Location = new System.Drawing.Point(12, 11);
             this.textBox_Name.Name = "textBox_Name";
-            this.textBox_Name.Size = new System.Drawing.Size(147, 21);
+            this.textBox_Name.Size = new System.Drawing.Size(127, 21);
             this.textBox_Name.TabIndex = 1;
-            this.textBox_Name.Text = "Click Here..";
+            this.textBox_Name.Text = "툰 선택 ...";
+            this.textBox_Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox_Name.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseClick);
             // 
             // button_SetArea
             // 
+            this.button_SetArea.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_SetArea.Enabled = false;
-            this.button_SetArea.Location = new System.Drawing.Point(182, 12);
+            this.button_SetArea.Location = new System.Drawing.Point(12, 38);
             this.button_SetArea.Name = "button_SetArea";
-            this.button_SetArea.Size = new System.Drawing.Size(75, 23);
+            this.button_SetArea.Size = new System.Drawing.Size(127, 21);
             this.button_SetArea.TabIndex = 0;
-            this.button_SetArea.Text = "Area Set";
+            this.button_SetArea.Text = "감시영역설정";
             this.button_SetArea.UseVisualStyleBackColor = true;
             this.button_SetArea.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 58);
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 84);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(242, 144);
+            this.pictureBox1.Size = new System.Drawing.Size(127, 262);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
@@ -83,7 +89,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::screencap.Properties.Resources._11;
-            this.pictureBox2.Location = new System.Drawing.Point(15, 39);
+            this.pictureBox2.Location = new System.Drawing.Point(15, 68);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(10, 10);
             this.pictureBox2.TabIndex = 3;
@@ -92,7 +98,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::screencap.Properties.Resources._12;
-            this.pictureBox3.Location = new System.Drawing.Point(31, 39);
+            this.pictureBox3.Location = new System.Drawing.Point(31, 68);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(10, 10);
             this.pictureBox3.TabIndex = 3;
@@ -101,7 +107,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::screencap.Properties.Resources._06;
-            this.pictureBox4.Location = new System.Drawing.Point(47, 39);
+            this.pictureBox4.Location = new System.Drawing.Point(47, 68);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(10, 10);
             this.pictureBox4.TabIndex = 3;
@@ -110,7 +116,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::screencap.Properties.Resources._16;
-            this.pictureBox5.Location = new System.Drawing.Point(63, 39);
+            this.pictureBox5.Location = new System.Drawing.Point(63, 68);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(10, 10);
             this.pictureBox5.TabIndex = 3;
@@ -122,7 +128,7 @@
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label1.Location = new System.Drawing.Point(144, 209);
+            this.label1.Location = new System.Drawing.Point(29, 371);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 12);
             this.label1.TabIndex = 4;
@@ -133,7 +139,7 @@
             // 
             this.label_status.AutoSize = true;
             this.label_status.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label_status.Location = new System.Drawing.Point(79, 39);
+            this.label_status.Location = new System.Drawing.Point(79, 68);
             this.label_status.Name = "label_status";
             this.label_status.Size = new System.Drawing.Size(0, 12);
             this.label_status.TabIndex = 5;
@@ -142,7 +148,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(269, 230);
+            this.ClientSize = new System.Drawing.Size(149, 393);
             this.Controls.Add(this.label_status);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox5);
@@ -156,7 +162,9 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Main_Form";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "썩김조 로컬알람기";
+            this.Load += new System.EventHandler(this.Main_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

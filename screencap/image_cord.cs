@@ -25,12 +25,15 @@ namespace screencap
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
         }
 
+        // 영역 선택 시작
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             Drawing = true;
             StartPoint = e.Location;
             DrawSelectionBox(e.Location);
         }
+
+        // 움직이는 동안 빨간 상자 그리기
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             if (!Drawing)
@@ -38,6 +41,7 @@ namespace screencap
             DrawSelectionBox(e.Location);
         }
 
+        // 영역 선택 끝
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             if (!Drawing)
