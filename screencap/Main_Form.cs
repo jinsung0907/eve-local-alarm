@@ -47,7 +47,7 @@ namespace screencap
             var Capture = new CaptureLib();
             Bitmap bmp = Capture.CaptureWindow(proc.MainWindowHandle);
             new image_cord(this, bmp).ShowDialog();
-            bmp.Dispose();
+            bmp.Dispose();  // 좋음
         }
 
         private void DoRequest()
