@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace screencap
@@ -19,8 +16,8 @@ namespace screencap
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Main_Form());
-          //  http_server httpd = new http_server();
-          //  httpd.SimpleHTTPServer(".", 8010);
+            //  http_server httpd = new http_server();
+            //  httpd.SimpleHTTPServer(".", 8010);
         }
     }
 
@@ -47,10 +44,21 @@ namespace screencap
         public System.Drawing.Bitmap CaptureWindow(IntPtr hWnd)
         {
             System.Drawing.Rectangle rctForm = System.Drawing.Rectangle.Empty;
-            using (System.Drawing.Graphics grfx = System.Drawing.Graphics.FromHdc(GetWindowDC(hWnd)))
+
+            try
             {
-                rctForm = System.Drawing.Rectangle.Round(grfx.VisibleClipBounds);
+                using (System.Drawing.Graphics grfx = System.Drawing.Graphics.FromHdc(GetWindowDC(hWnd)))
+                {
+                    rctForm = System.Drawing.Rectangle.Round(grfx.VisibleClipBounds);
+                }
             }
+            catch (ArgumentNullException)
+            {
+                Console.WriteLine("EVE Client was stopped");
+                throw;
+            }
+
+
             System.Drawing.Bitmap pImage = new System.Drawing.Bitmap(rctForm.Width, rctForm.Height);
             System.Drawing.Graphics graphics = System.Drawing.Graphics.FromImage(pImage);
             IntPtr hDC = graphics.GetHdc();

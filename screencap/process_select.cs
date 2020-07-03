@@ -45,10 +45,9 @@ namespace screencap
         {
             if (ListBox_process.IndexFromPoint(e.Location) == -1)
                 return;
-            main_form.textBox_Name.Text = (ListBox_process.SelectedItem as listboxData).Text;
+            main_form.button1.Text = (ListBox_process.SelectedItem as listboxData).Text;
             main_form.proc = Process.GetProcessById(int.Parse((ListBox_process.SelectedItem as listboxData).Value));
             
-            main_form.textBox_Name.ReadOnly = true;
             main_form.button_SetArea.Enabled = true;
 
             pictureBox_process.Dispose();
