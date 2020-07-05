@@ -1,16 +1,9 @@
 ﻿using AForge.Imaging;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
 using System.Media;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace screencap
@@ -20,19 +13,34 @@ namespace screencap
         public Process proc;
         public int isareaset = 0, text_xstart = 0, text_ystart = 0, text_xend = 0, text_yend = 0, status = 0;
 
-        SoundPlayer wav = new SoundPlayer(Properties.Resources.Cylen);
+        SoundPlayer wav = new SoundPlayer(Properties.Resources.Siren);
 
         Bitmap img_bad = new Bitmap(Properties.Resources._06);
         Bitmap img_neut = new Bitmap(Properties.Resources._10);
         Bitmap img_terrible = new Bitmap(Properties.Resources._12);
         Bitmap img_war = new Bitmap(Properties.Resources._16);
-        
+
         private void label1_Click(object sender, EventArgs e)
         {
-            Process.Start("https://gate.eveonline.com/Profile/Jinsung%202");
+            Process.Start("https://github.com/dryoo/eve-local-alarm");
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Main_Form_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 툰 고르는 화면 표시
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new process_select(this).ShowDialog();
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
         {
             DoRequest();
         }
@@ -42,12 +50,14 @@ namespace screencap
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        // 영역 설정 버튼 
+        private void button2_Click(object sender, EventArgs e)
         {
             var Capture = new CaptureLib();
             Bitmap bmp = Capture.CaptureWindow(proc.MainWindowHandle);
             new image_cord(this, bmp).ShowDialog();
-            bmp.Dispose();
+            bmp.Dispose();  // 좋음
         }
 
         private void DoRequest()
@@ -66,7 +76,8 @@ namespace screencap
                 else
                     label_status.ForeColor = Color.Red;
             }
-            else {
+            else
+            {
                 label_status.Text = "";
                 if (isareaset == 1)
                     bmp = bmp.Clone(new Rectangle(text_xstart, text_ystart, text_xend - text_xstart, text_yend - text_ystart), bmp.PixelFormat);
@@ -75,7 +86,7 @@ namespace screencap
                     pictureBox1.Image.Dispose();
                 }
                 pictureBox1.Image = bmp;
-                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                //pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
                 Bitmap img_original = bmp;
 
@@ -105,6 +116,7 @@ namespace screencap
                 }
                 img_original.UnlockBits(bitmapData);
 
+                // 
                 template = new Bitmap(img_terrible.Width, img_terrible.Height, PixelFormat.Format24bppRgb);
                 using (Graphics graphics = Graphics.FromImage((System.Drawing.Image)template))
                     graphics.DrawImage((System.Drawing.Image)img_terrible, new Rectangle(0, 0, template.Width, template.Height));
@@ -142,9 +154,7 @@ namespace screencap
             GC.WaitForPendingFinalizers();
         }
 
-        private void textBox1_MouseClick(object sender, MouseEventArgs e)
-        {
-            new process_select(this).ShowDialog();
-        }
+    
+ 
     }
 }
